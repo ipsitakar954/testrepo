@@ -1,0 +1,20 @@
+String endPoint = 'https://postman-echo.com/get?foo1=bar1&foo2=bar2';
+        
+        Http http = new Http();
+        HttpRequest req = new HttpRequest();
+        HttpResponse res = new HttpResponse();
+
+        req.setEndpoint(endPoint);
+        req.setMethod('GET');
+        try{
+            if(!Test.isRunningTest()){
+                res = http.send(req);
+    
+                if(res.getstatusCode() == 200 && res.getbody() != null){
+                    System.debug('checkresponse>>>'+res.getbody());
+                    }
+            }
+        }
+       catch(Exception ex){
+            System.debug('fetchMovieDetails_Method: Callout Exception >>'+ex);
+        }
