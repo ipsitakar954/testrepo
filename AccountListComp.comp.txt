@@ -1,0 +1,8 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="AccountController">
+	  <aura:attribute name="accountlist" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:iteration var="accnt" items="{!v.accountlist}">
+        <ui:outputText value="{!accnt.Name}"/><br/>
+    </aura:iteration>
+</aura:component>
